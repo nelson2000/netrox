@@ -9,6 +9,26 @@ variable "pub_key" {
 
 variable "ami-names" {
         type = map
+
+        default = {
+
+                amazonLinux1 = "ami-094125af156557ca2"  
+
+                amazonLinux2 = "ami-08e4eaf54ff5ee95e"  
+
+                redhat9 = "ami-0b6ce9bcd0a2f720d" 
+
+                ubuntu22 = "ami-017fecd1353bcc96e" 
+
+                ubuntu20 = "ami-0c09c7eb16d3e8e70" 
+
+               ubuntu18 = "ami-000340e2c761dddcd"
+
+                debian11 = "ami-071e6cafc48327ca2"
+
+                amazonLinux3 = "ami-081aaface2871d0d0"      
+
+        }
 }
 
 variable "zone1" {
@@ -39,6 +59,7 @@ variable "zone4" {
 
 variable instance_type {
         description = "Type of EC2 instance"
+        type = string
         default = "t2.micro"
         }
 
