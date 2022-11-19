@@ -109,8 +109,8 @@ resource "aws_security_group_rule" "sec_group_allow_itself" {
     from_port                   = 0
     to_port                     = 65535
     protocol                    = "tcp"
-    security_groups_id          = [aws_security_group.netrox-prod-sg.id]
-    source_security_groups_id   =  [aws_security_group.netrox-prod-sg.id]
+    security_group_id          = [aws_security_group.netrox-prod-sg.id]
+    source_security_group_id   =  [aws_security_group.netrox-prod-sg.id]
 
 }
 
