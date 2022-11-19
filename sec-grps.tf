@@ -34,7 +34,7 @@ resource "aws_security_group" "netrox-bastion-sg" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = [var.myip]
+    cidr_blocks      = [var.my-ip]
   
   }
 
@@ -104,12 +104,13 @@ resource "aws_security_group" "netrox-backend-sg" {
 }
 
 resource "aws_security_group_rule" "sec_group_allow_itself" {
+    description                 = " to allow the databases communicate within themselves in the backend"
     type                        = "ingress"
     from_port                   = 0
     to_port                     = 65535
     protocol                    = "tcp"
-    security_groups_id          = aws_security_group.netrox-backend-sg.id
-    source_security_groups_id   = aws_security_group.netrox-backend-sg.id
+    security_groups_id          = [aws_security_group.netrox-prod-sg.id]
+    source_security_groups_id   =  [aws_security_group.netrox-prod-sg.id]
 
 }
 
