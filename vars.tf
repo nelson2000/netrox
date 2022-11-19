@@ -1,4 +1,3 @@
-  GNU nano 2.9.3                                                                     vars.tf                                                                     Modified
 
 variable "priv_key" {
         default = "key.pem"
@@ -12,13 +11,34 @@ variable "ami-names" {
         type = map
 }
 
-variable "zone_names" {
-        type = map
+variable "zone1" {
+        description = "availability zone"
+        type = string
+        default = "us-west-2a"
+
+}
+
+variable "zone2" {
+        description = "availability zone"
+        type = string
+        default = "us-west-2b"
+}
+
+variable "zone3" {
+        description = "availability zone"
+        type = string
+        default = "us-west-2c"        
+
+}
+variable "zone4" {
+        description = "availability zone"
+        type = string
+        default = "us-west-2d"        
 
 }
 
 variable instance_type {
-        description = "Type of EC2 instance to provision"
+        description = "Type of EC2 instance"
         default = "t2.micro"
         }
 
