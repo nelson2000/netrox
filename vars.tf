@@ -1,4 +1,6 @@
-
+variable "region" {
+        default = "us-west-2"
+}
 variable "priv_key" {
         default = "key.pem"
 }
@@ -7,26 +9,33 @@ variable "pub_key" {
         default = "key-p.pem"
 }
 
-variable "ami-names" {
+variable "user_name" {
+        default = "vagrant"
+}
+
+variable "amis" {
         type = map
 
         default = {
 
-                amazonLinux1 = "ami-094125af156557ca2"  
+                us-west-2 = "ami-0c09c7eb16d3e8e70"
 
-                amazonLinux2 = "ami-08e4eaf54ff5ee95e"  
+                us-west-1 = "ami-017fecd1353bcc96e"
+                #amazonLinux1 = "ami-094125af156557ca2"  
 
-                redhat9 = "ami-0b6ce9bcd0a2f720d" 
+                #amazonLinux2 = "ami-08e4eaf54ff5ee95e"  
 
-                ubuntu22 = "ami-017fecd1353bcc96e" 
+                #redhat9 = "ami-0b6ce9bcd0a2f720d" 
 
-                ubuntu20 = "ami-0c09c7eb16d3e8e70" 
+                #ubuntu22 = "ami-017fecd1353bcc96e" 
 
-               ubuntu18 = "ami-000340e2c761dddcd"
+                #ubuntu20 = "ami-0c09c7eb16d3e8e70" 
 
-                debian11 = "ami-071e6cafc48327ca2"
+               #ubuntu18 = "ami-000340e2c761dddcd"
 
-                amazonLinux3 = "ami-081aaface2871d0d0"      
+                #debian11 = "ami-071e6cafc48327ca2"
+
+                #amazonLinux3 = "ami-081aaface2871d0d0"      
 
         }
 }
@@ -63,11 +72,67 @@ variable instance_type {
         default = "t2.micro"
         }
 
-variable "region" {
-        default = "us-west-2"
+
+
+
+variable "my-ip" {
+        default = "192.168.20.3/32"
+}
+
+variable "rmquser" {
+        default = "rabbit"
+}
+
+variable "rmqpass" {
+        default = "bmVsc29ubndhamll"
+}
+
+variable "dbuser" {
+        default = "admin"
+}
+
+
+variable "dbpass" {
+        default = "admin123"
+}
+
+variable "dbname" {
+        default = "accounts"
 }
 
 variable "instance_count" {
    default = 1
 }
 
+variable "vpc_name" {
+        default = "netrox-vpc"
+}
+
+variable "vpc-cidr" {
+        default = "172.21.0.0/16"
+}
+
+variable "Sub1cidr_pub" {
+        default = "172.21.1.0/24"
+}
+
+variable "Sub2cidr_pub" {
+        default = "172.21.2.0/24"
+}
+
+variable "Sub3cidr_pub" {
+        default = "172.21.3.0/24"
+}
+
+
+variable "Sub1cidr_prv" {
+        default = "172.21.4.0/24"
+}
+
+variable "Sub2cidr_prv" {
+        default = "172.21.5.0/24"
+}
+
+variable "Sub3cidr_prv" {
+        default = "172.21.6.0/24"
+}
