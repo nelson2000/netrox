@@ -104,7 +104,8 @@ variable "instance_count" {
    default = 1
 }
 
-variable "vpc_name" {
+variable "vpc-name" {
+       
         default = "netrox-vpc"
 }
 
