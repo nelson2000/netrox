@@ -1,3 +1,4 @@
+#creating subnet group for rds
 resource "aws_db_subnet_group" "netrox-rds-subgrp" {
     name = "netrox-rds-subgr"
     subnet_ids = [ module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]  ]
@@ -6,7 +7,7 @@ resource "aws_db_subnet_group" "netrox-rds-subgrp" {
     }
 }
 
-
+#creating subnet group for elasticache
 resource "aws_elasticache_subnet_group" "netrox-ecache-subgrp" {
     name = "netrox-ecache-subgrp"
     subnet_ids = [ module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]  ]
@@ -15,9 +16,9 @@ resource "aws_elasticache_subnet_group" "netrox-ecache-subgrp" {
     }
 }
 
-
+#creating the rds instance
 resource "aws_db_instance" "netrox-rds" {
-  allocated_storage    = 10
+  allocated_storage    = 20
   storage_type         = "gp2"
   db_name              = var.dbname
   engine               = "mysql"
@@ -35,7 +36,7 @@ resource "aws_db_instance" "netrox-rds" {
 
 }
 
-
+#creating elasticache
 resource "aws_elasticache_cluster" "netrox-cache" {
   cluster_id           = "netrox-cache"
   engine               = "memcached"
@@ -48,7 +49,7 @@ resource "aws_elasticache_cluster" "netrox-cache" {
 
 }
 
-
+#creating active_mq
 resource "aws_mq_broker" "netrox-rmq" {
   broker_name           = "netrox-rmq"
   engine_type           = "ActiveMQ"
