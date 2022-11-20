@@ -1,7 +1,7 @@
 
 resource "aws_elastic_beanstalk_environment" "netrox-bean-prod" {
   name                = "netrox-bean-prod"
-  application         = aws_elastic_beanstalk_application.vprofile-prod.name
+  application         = aws_elastic_beanstalk_application.netrox-prod.name
   solution_stack_name = "64bit Amazon Linux 2 v4.1.1 running Tomcat 8.5 Corretto 11"
   cname_prefix        = "netrox-bean-prod-domain"
   setting {

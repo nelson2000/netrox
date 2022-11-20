@@ -23,7 +23,7 @@ resource "aws_db_instance" "netrox-rds" {
   password             = var.dbpass
   parameter_group_name = "default.mysql5.7"
   multi_az             = false
-  publicly-accessible  = false
+  publicly_accessible  = false
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.netrox-rds-subgrp.name
   vpc_security_group_ids = [aws_security_group.netrox-backend-sg.id] 
