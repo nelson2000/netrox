@@ -2,18 +2,12 @@
 resource "aws_db_subnet_group" "netrox-rds-subgrp" {
     name = "netrox-rds-subgr"
     subnet_ids = [ module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]  ]
-    tags = {
-        Name = "Subnet group for ECACHE"
-    }
 }
 
 #creating subnet group for elasticache
 resource "aws_elasticache_subnet_group" "netrox-ecache-subgrp" {
     name = "netrox-ecache-subgrp"
     subnet_ids = [ module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]  ]
-    tags = {
-        Name = "Subnet group for ECACHE"
-    }
 }
 
 #creating the rds instance
