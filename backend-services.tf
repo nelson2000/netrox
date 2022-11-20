@@ -14,7 +14,6 @@ resource "aws_elasticache_subnet_group" "netrox-ecache-subgrp" {
 resource "aws_db_instance" "netrox-rds" {
   allocated_storage    = 20
   storage_type         = "gp2"
-  db_name              = var.dbname
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
