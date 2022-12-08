@@ -1,5 +1,5 @@
 variable "region" {
-        default = "us-west-2"
+        default = "us-east-2"
 }
 variable "priv_key" {
         default = "key.pem"
